@@ -16,6 +16,14 @@ public class SorterUtilsTest {
     }
 
     @Test
+    public void testSwap() throws Exception {
+        Integer randomNumbers[] = {0, 1};
+        SorterUtils.swap(randomNumbers, 0, 1);
+        Assert.assertEquals(1, randomNumbers[0]);
+        Assert.assertEquals(0, randomNumbers[1]);
+    }
+
+    @Test
     public void testRandomNumbers() throws Exception {
         Integer randomNumbers[] = SorterUtils.generateRandomIntArray(11);
         Assert.assertEquals(11, randomNumbers.length);
