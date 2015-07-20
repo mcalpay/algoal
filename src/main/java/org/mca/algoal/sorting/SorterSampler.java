@@ -14,7 +14,7 @@ public class SorterSampler {
             new TimePrintingSorter(new JDKArraysSorter(Comparator.naturalOrder()), true)
                     .sort(SorterUtils.generateRandomIntArray(i));
             System.out.print(";");
-            new TimePrintingSorter(new InsertionSort(Comparator.naturalOrder()), true)
+            new TimePrintingSorter(new InsertionSorter(Comparator.naturalOrder()), true)
                     .sort(SorterUtils.generateRandomIntArray(i));
             System.out.print("\n");
         }

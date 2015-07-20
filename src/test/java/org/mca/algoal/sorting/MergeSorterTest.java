@@ -4,11 +4,11 @@ import java.util.Comparator;
 
 public class MergeSorterTest extends AbstractSortTest {
 
-    private static final MergeSorter mergeSorter = new MergeSorter(Comparator.naturalOrder());
+    private static final Sorter<Integer> sorter = new MergeSorter<>(Comparator.<Integer>naturalOrder());
 
     @Override
-    protected Sorter getSorter() {
-        return mergeSorter;
+    protected Sorter<Integer> getSorter() {
+        return sorter;
     }
 
 }

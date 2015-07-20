@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 
 public abstract class AbstractSortTest {
 
-    protected abstract Sorter getSorter();
+    protected abstract Sorter<Integer> getSorter();
 
     protected void test(Integer[] randomNumbers) {
         IntStream.range(0, randomNumbers.length)
@@ -26,7 +26,7 @@ public abstract class AbstractSortTest {
         Integer randomNumbers[] = SorterUtils.generateRandomIntArray(getProfilingSize());
 
         System.out.print("Random data:    ");
-        TimePrintingSorter timePrintingSorter = new TimePrintingSorter(getSorter());
+        TimePrintingSorter<Integer> timePrintingSorter = new TimePrintingSorter<>(getSorter());
         timePrintingSorter
                 .sort(randomNumbers);
         test(randomNumbers);
@@ -51,7 +51,7 @@ public abstract class AbstractSortTest {
         Integer randomNumbers[] = SorterUtils.generateUniqueRandomIntArray(100);
         getSorter().sort(randomNumbers);
         IntStream.range(0, randomNumbers.length)
-                .forEach(i -> Assert.assertEquals(i, randomNumbers[i].intValue()));
+                .forEach(i -> Assert.assertEquals(i, randomNumbers[i]));
     }
 
 }

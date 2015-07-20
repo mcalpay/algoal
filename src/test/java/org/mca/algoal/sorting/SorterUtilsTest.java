@@ -9,9 +9,9 @@ import java.util.stream.IntStream;
 
 public class SorterUtilsTest {
 
-    private static final JDKArraysSorter jdkArraysSorter = new JDKArraysSorter(Comparator.naturalOrder());
+    private static final JDKArraysSorter<Integer> jdkArraysSorter = new JDKArraysSorter<>(Comparator.<Integer>naturalOrder());
 
-    protected Sorter getSorter() {
+    protected Sorter<Integer> getSorter() {
         return jdkArraysSorter;
     }
 
@@ -29,7 +29,7 @@ public class SorterUtilsTest {
         Assert.assertEquals(11, randomNumbers.length);
         try {
             IntStream.range(0, randomNumbers.length)
-                    .filter(i -> i != randomNumbers[i].intValue()).findFirst();
+                    .filter(i -> i != randomNumbers[i]).findFirst();
         } catch (NoSuchElementException nse) {
             Assert.fail();
         }
@@ -41,13 +41,13 @@ public class SorterUtilsTest {
         Assert.assertEquals(11, randomNumbers.length);
         getSorter().sort(randomNumbers);
         IntStream.range(0, randomNumbers.length)
-                .forEach(i -> Assert.assertEquals(i, randomNumbers[i].intValue()));
+                .forEach(i -> Assert.assertEquals(i, randomNumbers[i]));
 
         IntStream.range(0, randomNumbers.length / 2)
                 .forEach(i -> SorterUtils.swap(randomNumbers, i, randomNumbers.length - i - 1));
 
         IntStream.range(0, randomNumbers.length)
-                .forEach(i -> Assert.assertEquals(i, randomNumbers[randomNumbers.length - i - 1].intValue()));
+                .forEach(i -> Assert.assertEquals(i, randomNumbers[randomNumbers.length - i - 1]));
     }
 
 }

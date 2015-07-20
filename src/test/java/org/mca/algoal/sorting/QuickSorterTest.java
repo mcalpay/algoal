@@ -4,10 +4,11 @@ import java.util.Comparator;
 
 public class QuickSorterTest extends AbstractSortTest {
 
-    private static final QuickSorter sorter = new QuickSorter(Comparator.naturalOrder());
+    private static final Sorter<Integer> sorter = new QuickSorter<>(Comparator.<Integer>naturalOrder());
 
     @Override
-    protected Sorter getSorter() {
+    protected Sorter<Integer> getSorter() {
         return sorter;
     }
+
 }

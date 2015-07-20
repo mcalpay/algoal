@@ -4,10 +4,10 @@ import java.util.Comparator;
 
 public class BubbleSorterTest extends AbstractSortTest {
 
-    private static final BubbleSorter sorter = new BubbleSorter(Comparator.naturalOrder());
+    private static final Sorter<Integer> sorter = new BubbleSorter<>(Comparator.<Integer>naturalOrder());
 
     @Override
-    protected Sorter getSorter() {
+    protected Sorter<Integer> getSorter() {
         return sorter;
     }
 

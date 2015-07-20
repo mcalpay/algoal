@@ -2,9 +2,9 @@ package org.mca.algoal.sorting;
 
 import java.util.Comparator;
 
-public class GnomeSorterTest extends AbstractSortTest {
+public class InsertionSorterTest extends AbstractSortTest {
 
-    private static final Sorter<Integer> sorter = new GnomeSorter<>(Comparator.<Integer>naturalOrder());
+    private static final Sorter<Integer> sorter = new InsertionSorter<>(Comparator.<Integer>naturalOrder());
 
     @Override
     protected Sorter<Integer> getSorter() {

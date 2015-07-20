@@ -2,11 +2,11 @@ package org.mca.algoal.sorting;
 
 import java.util.Comparator;
 
-public class InsertionSort<T> implements Sorter<T> {
+public class InsertionSorter<T> implements Sorter<T> {
 
     private final Comparator<T> comparator;
 
-    public InsertionSort(Comparator<T> comparator) {
+    public InsertionSorter(Comparator<T> comparator) {
         this.comparator = comparator;
     }
 

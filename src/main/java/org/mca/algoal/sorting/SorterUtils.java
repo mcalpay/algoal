@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 
 public class SorterUtils {
 
-    private static Random random = new Random();
+    private static final Random random = new Random();
 
     public static void swap(Object[] numbers, int i, int j) {
         Object temp = numbers[i];
@@ -17,7 +17,7 @@ public class SorterUtils {
     }
 
     public static Integer[] generateRandomIntArray(int size) {
-        return IntStream.range(0, size).map(i -> random.nextInt(size)).boxed().toArray(len -> new Integer[len]);
+        return IntStream.range(0, size).map(i -> random.nextInt(size)).boxed().toArray(Integer[]::new);
     }
 
     public static Integer[] generateUniqueRandomIntArray(int size) {
