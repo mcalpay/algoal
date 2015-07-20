@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class MergeSorterTest extends AbstractSortTest {
 
-    private MergeSorter mergeSorter = new MergeSorter(Comparator.naturalOrder());
+    private static final MergeSorter mergeSorter = new MergeSorter(Comparator.naturalOrder());
 
     @Override
     protected Sorter getSorter() {

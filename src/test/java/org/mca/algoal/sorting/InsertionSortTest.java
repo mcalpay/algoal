@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class InsertionSortTest extends AbstractSortTest {
 
-    private InsertionSort insertionSort = new InsertionSort(Comparator.naturalOrder());
+    private static final InsertionSort insertionSort = new InsertionSort(Comparator.naturalOrder());
 
     @Override
     protected Sorter getSorter() {

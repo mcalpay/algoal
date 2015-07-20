@@ -4,8 +4,7 @@ import java.util.Comparator;
 
 public class BubbleSorterTest extends AbstractSortTest {
 
-    private BubbleSorter sorter = new BubbleSorter(Comparator.naturalOrder());
-    ;
+    private static final BubbleSorter sorter = new BubbleSorter(Comparator.naturalOrder());
 
     @Override
     protected Sorter getSorter() {
