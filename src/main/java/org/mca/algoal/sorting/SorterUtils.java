@@ -27,8 +27,7 @@ public class SorterUtils {
     }
 
     public static void reverse(Integer[] randomNumbers) {
-        IntStream.range(0, randomNumbers.length / 2).forEach(i -> {
-            SorterUtils.swap(randomNumbers, i, randomNumbers.length - i - 1);
-        });
+        IntStream.range(0, randomNumbers.length / 2)
+                .forEach(i -> SorterUtils.swap(randomNumbers, i, randomNumbers.length - i - 1));
     }
 }

@@ -35,9 +35,9 @@ public class SorterUtilsTest {
         IntStream.range(0, randomNumbers.length)
                 .forEach(i -> Assert.assertEquals(i, randomNumbers[i].intValue()));
 
-        IntStream.range(0, randomNumbers.length / 2).forEach(i -> {
-            SorterUtils.swap(randomNumbers, i, randomNumbers.length - i - 1);
-        });
+        IntStream.range(0, randomNumbers.length / 2)
+                .forEach(i -> SorterUtils.swap(randomNumbers, i, randomNumbers.length - i - 1));
+
         IntStream.range(0, randomNumbers.length)
                 .forEach(i -> Assert.assertEquals(i, randomNumbers[randomNumbers.length - i - 1].intValue()));
     }
