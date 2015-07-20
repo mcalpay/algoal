@@ -23,7 +23,7 @@ public class TimePrintingSorter<T> implements Sorter<T> {
         if (justTime) {
             System.out.print((end - start));
         } else {
-            System.out.println(sorter.getClass().getName() + " sorted, " + items.length + " elements in " + (end - start) + " milliseconds");
+            System.out.println(sorter.getClass().getSimpleName() + " " + items.length + " elements in " + (end - start) + " milliseconds");
         }
     }
 }

@@ -13,7 +13,7 @@ public class InsertionSortTest extends AbstractSortTest {
 
     @Override
     protected int getProfilingSize() {
-        return 10_000;
+        return 20_000;
     }
 
 }

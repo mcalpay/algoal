@@ -3,6 +3,10 @@ package org.mca.algoal.sorting;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public abstract class AbstractSortTest {
 
     protected abstract Sorter getSorter();
@@ -23,8 +27,22 @@ public abstract class AbstractSortTest {
     @Test
     public void testWithProfiling() throws Exception {
         Integer randomNumbers[] = SorterUtils.generateRandomIntArray(getProfilingSize());
-        new TimePrintingSorter(getSorter())
+
+        System.out.print("Random data: ");
+        TimePrintingSorter timePrintingSorter = new TimePrintingSorter(getSorter());
+        timePrintingSorter
                 .sort(randomNumbers);
+        test(randomNumbers);
+
+        System.out.print("Best case  : ");
+        timePrintingSorter.sort(randomNumbers);
+        test(randomNumbers);
+
+        List<Integer> aList = Arrays.asList(randomNumbers);
+        Collections.reverse(aList);
+        randomNumbers = aList.toArray(randomNumbers);
+        System.out.print("Worst case : ");
+        timePrintingSorter.sort(randomNumbers);
         test(randomNumbers);
     }
 
