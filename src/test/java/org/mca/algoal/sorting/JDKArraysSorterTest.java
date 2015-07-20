@@ -4,9 +4,11 @@ import java.util.Comparator;
 
 public class JDKArraysSorterTest extends AbstractSortTest {
 
+    private JDKArraysSorter jdkArraysSorter = new JDKArraysSorter(Comparator.naturalOrder());
+
     @Override
     protected Sorter getSorter() {
-        return new JDKArraysSorter(Comparator.naturalOrder());
+        return jdkArraysSorter;
     }
 
 }
