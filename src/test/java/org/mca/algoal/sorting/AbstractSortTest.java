@@ -25,18 +25,19 @@ public abstract class AbstractSortTest {
     public void testWithProfiling() throws Exception {
         Integer randomNumbers[] = SorterUtils.generateRandomIntArray(getProfilingSize());
 
-        System.out.print("Random data:    ");
-        TimePrintingSorter<Integer> timePrintingSorter = new TimePrintingSorter<>(getSorter());
+        RSRTimePrintingSorter timePrintingSorter = new RSRTimePrintingSorter();
+        timePrintingSorter.setPrefix("Random data:   ");
         timePrintingSorter
                 .sort(randomNumbers);
         test(randomNumbers);
 
-        System.out.print("Sorted data:    ");
+        timePrintingSorter.setPrefix("Sorted data:   ");
         timePrintingSorter.sort(randomNumbers);
         test(randomNumbers);
 
         SorterUtils.reverse(randomNumbers);
-        System.out.print("Reverse sorted: ");
+
+        timePrintingSorter.setPrefix("Reverse sorted:");
         timePrintingSorter.sort(randomNumbers);
         test(randomNumbers);
     }
@@ -54,4 +55,21 @@ public abstract class AbstractSortTest {
                 .forEach(i -> Assert.assertEquals(i, randomNumbers[i]));
     }
 
+    private class RSRTimePrintingSorter extends TimePrintingSorter<Integer> {
+
+        private String prefix;
+
+        public RSRTimePrintingSorter() {
+            super(AbstractSortTest.this.getSorter());
+        }
+
+        @Override
+        protected void doPrint(String sorterName, long timeSpent, int length) {
+            System.out.println(prefix + " " + sorterName + " " + length + " elements in " + timeSpent + " milliseconds");
+        }
+
+        public void setPrefix(String prefix) {
+            this.prefix = prefix;
+        }
+    }
 }

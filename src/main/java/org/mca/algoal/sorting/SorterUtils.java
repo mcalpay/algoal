@@ -11,9 +11,11 @@ public class SorterUtils {
     private static final Random random = new Random();
 
     public static void swap(Object[] numbers, int i, int j) {
-        Object temp = numbers[i];
-        numbers[i] = numbers[j];
-        numbers[j] = temp;
+        if (i != j) {
+            Object temp = numbers[i];
+            numbers[i] = numbers[j];
+            numbers[j] = temp;
+        }
     }
 
     public static Integer[] generateRandomIntArray(int size) {
