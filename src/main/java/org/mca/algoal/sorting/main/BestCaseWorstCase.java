@@ -14,7 +14,7 @@ public class BestCaseWorstCase {
 
     public static void main(String... args) throws Exception {
         Integer items[] = SorterUtils.generateUniqueRandomIntArray(100_000);
-        InsertionSort theSorter = new InsertionSort(Comparator.naturalOrder());
+        Sorter theSorter = new InsertionSort(Comparator.naturalOrder());
         Sorter sorter = new TimePrintingSorter(theSorter);
 
         System.out.print("Random data: ");
