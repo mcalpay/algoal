@@ -2,18 +2,13 @@ package org.mca.algoal.sorting;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.mca.algoal.sorting.BubbleSorter;
-import org.mca.algoal.sorting.InsertionSorter;
-import org.mca.algoal.sorting.MergeSorter;
-import org.mca.algoal.sorting.Sorter;
 
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
 
 public class SortTest {
 
-    private static final int SIZE = 9_000_000;
+    private static final int SIZE = 1_000_000;
 
     @Test
     public void testArraysSort() throws Exception {
@@ -32,16 +27,24 @@ public class SortTest {
     }
 
     @Test
-    public void testInsertionSort() throws Exception {
-        Integer randomNumbers[] = generateRandomIntArray(100_000);
-         new TimePrintingSorter(new InsertionSorter(Comparator.naturalOrder()))
+    public void testGnomeSort() throws Exception {
+        Integer randomNumbers[] = generateRandomIntArray(9_999);
+         new TimePrintingSorter(new GnomeSorter(Comparator.naturalOrder()))
                  .sort(randomNumbers);
         test(randomNumbers);
     }
 
     @Test
+    public void testInsertionSort() throws Exception {
+        Integer randomNumbers[] = generateRandomIntArray(SIZE);
+        new TimePrintingSorter(new InsertionSort(Comparator.naturalOrder()))
+                .sort(randomNumbers);
+        test(randomNumbers);
+    }
+
+    @Test
     public void testBubbleSort() throws Exception {
-        Integer randomNumbers[] = generateRandomIntArray(100_000);
+        Integer randomNumbers[] = generateRandomIntArray(9_999);
         new TimePrintingSorter(new BubbleSorter(Comparator.naturalOrder()))
                 .sort(randomNumbers);
         test(randomNumbers);

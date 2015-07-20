@@ -3,11 +3,11 @@ package org.mca.algoal.sorting;
 import java.util.Comparator;
 
 // gnome sort?
-public class InsertionSorter<T> implements Sorter<T> {
+public class GnomeSorter<T> implements Sorter<T> {
 
     private Comparator<T> comparator;
 
-    public InsertionSorter(Comparator<T> comparator) {
+    public GnomeSorter(Comparator<T> comparator) {
         this.comparator = comparator;
     }
 
