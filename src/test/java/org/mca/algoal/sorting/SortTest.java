@@ -35,7 +35,7 @@ public class SortTest {
 
     @Test
     public void testInsertionSort() throws Exception {
-        Integer randomNumbers[] = SorterUtils.generateRandomIntArray(SIZE);
+        Integer randomNumbers[] = SorterUtils.generateRandomIntArray(9_999);
         new TimePrintingSorter(new InsertionSort(Comparator.naturalOrder()))
                 .sort(randomNumbers);
         test(randomNumbers);

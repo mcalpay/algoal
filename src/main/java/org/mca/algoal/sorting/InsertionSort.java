@@ -17,7 +17,7 @@ public class InsertionSort<T> implements Sorter<T> {
             int j = i;
             while (j >= 1 &&
                     comparator.compare(item, items[j - 1]) < 0) {
-                items[j - 1] = items[j];
+                items[j] = items[j - 1];
                 j--;
             }
 
