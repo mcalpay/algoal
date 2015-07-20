@@ -47,7 +47,7 @@ public abstract class AbstractSortTest {
     }
 
     @Test
-    public void testZeroToTen() throws Exception {
+    public void testZeroToHundred() throws Exception {
         Integer randomNumbers[] = SorterUtils.generateUniqueRandomIntArray(100);
         getSorter().sort(randomNumbers);
         IntStream.range(0, randomNumbers.length)
