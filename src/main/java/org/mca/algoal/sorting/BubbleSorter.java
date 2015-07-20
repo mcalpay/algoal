@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class BubbleSorter<T> implements Sorter<T> {
 
-    private Comparator<T> comparator;
+    private final Comparator<T> comparator;
 
     public BubbleSorter(Comparator<T> comparator) {
         this.comparator = comparator;

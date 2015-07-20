@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class QuickSorter<T> implements Sorter<T> {
 
-    private Comparator<T> comparator;
+    private final Comparator<T> comparator;
 
     public QuickSorter(Comparator<T> comparator) {
         this.comparator = comparator;

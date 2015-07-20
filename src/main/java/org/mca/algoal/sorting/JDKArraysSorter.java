@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 public class JDKArraysSorter<T> implements Sorter<T> {
 
-    private Comparator<T> comparator;
+    private final Comparator<T> comparator;
 
     public JDKArraysSorter(Comparator<T> comparator) {
         this.comparator = comparator;

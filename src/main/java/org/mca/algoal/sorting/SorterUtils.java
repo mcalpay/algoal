@@ -1,11 +1,14 @@
 package org.mca.algoal.sorting;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class SorterUtils {
+
+    private static Random random = new Random();
 
     public static void swap(Object[] numbers, int i, int j) {
         Object temp = numbers[i];
@@ -14,22 +17,18 @@ public class SorterUtils {
     }
 
     public static Integer[] generateRandomIntArray(int size) {
-        Random random = new Random();
-        Integer result[] = new Integer[size];
-        for (int i = 0; i < result.length; i++) {
-            result[i] = random.nextInt(Integer.MAX_VALUE);
-        }
-        return result;
+        return IntStream.range(0, size).map(i -> random.nextInt(size)).boxed().toArray(len -> new Integer[len]);
     }
 
     public static Integer[] generateUniqueRandomIntArray(int size) {
-        final List<Integer> sack = new ArrayList(size);
-        for (int i = 0; i < size; i++) {
-            sack.add(i);
-        }
-
+        final List<Integer> sack = IntStream.range(0, size).boxed().collect(Collectors.toList());
         Collections.shuffle(sack);
-        return sack.toArray(new Integer[0]);
+        return sack.toArray(new Integer[sack.size()]);
     }
 
+    public static void reverse(Integer[] randomNumbers) {
+        IntStream.range(0, randomNumbers.length / 2).forEach(i -> {
+            SorterUtils.swap(randomNumbers, i, randomNumbers.length - i - 1);
+        });
+    }
 }

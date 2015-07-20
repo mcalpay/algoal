@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class MergeSorter<T> implements Sorter<T> {
 
-    private Comparator<T> comparator;
+    private final Comparator<T> comparator;
 
     public MergeSorter(Comparator<T> comparator) {
         this.comparator = comparator;

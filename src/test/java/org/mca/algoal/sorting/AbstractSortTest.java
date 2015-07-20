@@ -3,21 +3,18 @@ package org.mca.algoal.sorting;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.stream.IntStream;
 
 public abstract class AbstractSortTest {
 
     protected abstract Sorter getSorter();
 
     protected void test(Integer[] randomNumbers) {
-        for (int i = 0; i < randomNumbers.length; i++) {
-            if (i + 1 < randomNumbers.length
-                    && randomNumbers[i] > randomNumbers[i + 1]) {
-                Assert.fail("i:" + i + " " + randomNumbers[i] + ">" + randomNumbers[i + 1]);
-            }
-        }
+        IntStream.range(0, randomNumbers.length)
+                .filter(i ->
+                        (i + 1 < randomNumbers.length
+                                && randomNumbers[i] > randomNumbers[i + 1]))
+                .forEach(i -> Assert.fail("i:" + i + " " + randomNumbers[i] + ">" + randomNumbers[i + 1]));
     }
 
     protected int getProfilingSize() {
@@ -38,9 +35,7 @@ public abstract class AbstractSortTest {
         timePrintingSorter.sort(randomNumbers);
         test(randomNumbers);
 
-        List<Integer> aList = Arrays.asList(randomNumbers);
-        Collections.reverse(aList);
-        randomNumbers = aList.toArray(randomNumbers);
+        SorterUtils.reverse(randomNumbers);
         System.out.print("Reverse sorted: ");
         timePrintingSorter.sort(randomNumbers);
         test(randomNumbers);
@@ -48,18 +43,15 @@ public abstract class AbstractSortTest {
 
     @Test
     public void testEndValues() throws Exception {
-        getSorter()
-                .sort(new Integer[]{});
+        getSorter().sort(new Integer[]{});
     }
 
     @Test
     public void testZeroToTen() throws Exception {
         Integer randomNumbers[] = SorterUtils.generateUniqueRandomIntArray(100);
-        getSorter()
-                .sort(randomNumbers);
-        for (int i = 0; i < randomNumbers.length; i++) {
-            junit.framework.Assert.assertEquals(i, randomNumbers[i].intValue());
-        }
+        getSorter().sort(randomNumbers);
+        IntStream.range(0, randomNumbers.length)
+                .forEach(i -> Assert.assertEquals(i, randomNumbers[i].intValue()));
     }
 
 }

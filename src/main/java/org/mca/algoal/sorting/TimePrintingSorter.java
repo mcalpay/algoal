@@ -2,7 +2,7 @@ package org.mca.algoal.sorting;
 
 public class TimePrintingSorter<T> implements Sorter<T> {
 
-    private Sorter<T> sorter;
+    private final Sorter<T> sorter;
 
     private boolean justTime = false;
 
