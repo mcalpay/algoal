@@ -4,8 +4,15 @@ public class TimePrintingSorter<T> implements Sorter<T> {
 
     private Sorter<T> sorter;
 
+    private boolean justTime = false;
+
     public TimePrintingSorter(Sorter<T> sorter) {
         this.sorter = sorter;
+    }
+
+    public TimePrintingSorter(Sorter<T> sorter, boolean justTime) {
+        this.sorter = sorter;
+        this.justTime = justTime;
     }
 
     @Override
@@ -13,6 +20,10 @@ public class TimePrintingSorter<T> implements Sorter<T> {
         long start = System.currentTimeMillis();
         sorter.sort(items);
         long end = System.currentTimeMillis();
-        System.out.println(sorter.getClass().getName() + " sorted, " + items.length + " elements in " + (end - start) + " milliseconds");
+        if (justTime) {
+            System.out.print((end - start));
+        } else {
+            System.out.println(sorter.getClass().getName() + " sorted, " + items.length + " elements in " + (end - start) + " milliseconds");
+        }
     }
 }

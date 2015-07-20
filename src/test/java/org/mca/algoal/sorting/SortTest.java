@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.Comparator;
-import java.util.Random;
 
 public class SortTest {
 
@@ -12,7 +11,7 @@ public class SortTest {
 
     @Test
     public void testArraysSort() throws Exception {
-        Integer randomNumbers[] = generateRandomIntArray(SIZE);
+        Integer randomNumbers[] = SorterUtils.generateRandomIntArray(SIZE);
         new TimePrintingSorter(new JDKArraysSorter(Comparator.naturalOrder()))
                 .sort(randomNumbers);
         test(randomNumbers);
@@ -20,7 +19,7 @@ public class SortTest {
 
     @Test
     public void testMergeSort() throws Exception {
-        Integer randomNumbers[] = generateRandomIntArray(SIZE);
+        Integer randomNumbers[] = SorterUtils.generateRandomIntArray(SIZE);
         new TimePrintingSorter(new MergeSorter(Comparator.naturalOrder()))
                 .sort(randomNumbers);
         test(randomNumbers);
@@ -28,15 +27,15 @@ public class SortTest {
 
     @Test
     public void testGnomeSort() throws Exception {
-        Integer randomNumbers[] = generateRandomIntArray(9_999);
-         new TimePrintingSorter(new GnomeSorter(Comparator.naturalOrder()))
-                 .sort(randomNumbers);
+        Integer randomNumbers[] = SorterUtils.generateRandomIntArray(9_999);
+        new TimePrintingSorter(new GnomeSorter(Comparator.naturalOrder()))
+                .sort(randomNumbers);
         test(randomNumbers);
     }
 
     @Test
     public void testInsertionSort() throws Exception {
-        Integer randomNumbers[] = generateRandomIntArray(SIZE);
+        Integer randomNumbers[] = SorterUtils.generateRandomIntArray(SIZE);
         new TimePrintingSorter(new InsertionSort(Comparator.naturalOrder()))
                 .sort(randomNumbers);
         test(randomNumbers);
@@ -44,7 +43,7 @@ public class SortTest {
 
     @Test
     public void testBubbleSort() throws Exception {
-        Integer randomNumbers[] = generateRandomIntArray(9_999);
+        Integer randomNumbers[] = SorterUtils.generateRandomIntArray(9_999);
         new TimePrintingSorter(new BubbleSorter(Comparator.naturalOrder()))
                 .sort(randomNumbers);
         test(randomNumbers);
@@ -57,15 +56,6 @@ public class SortTest {
                 Assert.fail("i:" + i + " " + randomNumbers[i] + ">" + randomNumbers[i + 1]);
             }
         }
-    }
-
-    private Integer[] generateRandomIntArray(int size) {
-        Random random = new Random();
-        Integer result[] = new Integer[size];
-        for (int i = 0; i < result.length; i++) {
-            result[i] = random.nextInt();
-        }
-        return result;
     }
 
 }
