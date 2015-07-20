@@ -28,20 +28,20 @@ public abstract class AbstractSortTest {
     public void testWithProfiling() throws Exception {
         Integer randomNumbers[] = SorterUtils.generateRandomIntArray(getProfilingSize());
 
-        System.out.print("Random data: ");
+        System.out.print("Random data:    ");
         TimePrintingSorter timePrintingSorter = new TimePrintingSorter(getSorter());
         timePrintingSorter
                 .sort(randomNumbers);
         test(randomNumbers);
 
-        System.out.print("Best case  : ");
+        System.out.print("Sorted data:    ");
         timePrintingSorter.sort(randomNumbers);
         test(randomNumbers);
 
         List<Integer> aList = Arrays.asList(randomNumbers);
         Collections.reverse(aList);
         randomNumbers = aList.toArray(randomNumbers);
-        System.out.print("Worst case : ");
+        System.out.print("Reverse sorted: ");
         timePrintingSorter.sort(randomNumbers);
         test(randomNumbers);
     }

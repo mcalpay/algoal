@@ -1,6 +1,4 @@
-package org.mca.algoal.sorting.main;
-
-import org.mca.algoal.sorting.*;
+package org.mca.algoal.sorting;
 
 import java.util.Comparator;
 
