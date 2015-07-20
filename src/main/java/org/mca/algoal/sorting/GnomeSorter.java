@@ -2,7 +2,6 @@ package org.mca.algoal.sorting;
 
 import java.util.Comparator;
 
-// gnome sort?
 public class GnomeSorter<T> implements Sorter<T> {
 
     private Comparator<T> comparator;
