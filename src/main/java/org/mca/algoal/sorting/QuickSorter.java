@@ -22,7 +22,7 @@ public class QuickSorter implements Sorter {
     }
 
     private int partition(Comparable[] items, int lo, int hi) {
-        int pivotIndex = random.nextInt(hi - lo) + lo;
+        int pivotIndex = random.nextInt(hi - lo + 1) + lo;
         Comparable pivotValue = items[pivotIndex];
         Utils.swap(items, pivotIndex, hi);
         int storeIndex = lo;
