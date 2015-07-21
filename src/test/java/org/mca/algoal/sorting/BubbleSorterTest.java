@@ -1,10 +1,8 @@
 package org.mca.algoal.sorting;
 
-import java.util.Comparator;
-
 public class BubbleSorterTest extends AbstractSortTest {
 
-    private static final Sorter<Integer> sorter = new BubbleSorter<>(Comparator.<Integer>naturalOrder());
+    private static final Sorter<Integer> sorter = new BubbleSorter<>();
 
     @Override
     protected Sorter<Integer> getSorter() {

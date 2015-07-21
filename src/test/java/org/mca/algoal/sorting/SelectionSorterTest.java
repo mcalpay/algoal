@@ -1,10 +1,8 @@
 package org.mca.algoal.sorting;
 
-import java.util.Comparator;
-
 public class SelectionSorterTest extends AbstractSortTest {
 
-    private static final Sorter<Integer> sorter = new SelectionSorter<>(Comparator.<Integer>naturalOrder());
+    private static final Sorter<Integer> sorter = new SelectionSorter<>();
 
     @Override
     protected Sorter<Integer> getSorter() {

@@ -1,10 +1,8 @@
 package org.mca.algoal.sorting;
 
-import java.util.Comparator;
+public class HeapSorterTest extends AbstractSortTest {
 
-public abstract class HeapSorterTest extends AbstractSortTest {
-
-    private static final Sorter<Integer> sorter = new HeapSorter<>(Comparator.<Integer>naturalOrder());
+    private static final Sorter<Integer> sorter = new HeapSorter<>();
 
     @Override
     protected Sorter<Integer> getSorter() {

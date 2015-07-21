@@ -1,27 +1,27 @@
-package org.mca.algoal.sorting;
+package org.mca.algoal.utils;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.mca.algoal.sorting.JDKArraysSorter;
 
-import java.util.Comparator;
 import java.util.NoSuchElementException;
 import java.util.stream.IntStream;
 
-public class SorterUtilsTest {
+public class UtilsTest {
 
-    private static final JDKArraysSorter<Integer> jdkArraysSorter = new JDKArraysSorter<>(Comparator.<Integer>naturalOrder());
+    private static final JDKArraysSorter<Integer> jdkArraysSorter = new JDKArraysSorter<>();
 
     @Test
     public void testSwap() throws Exception {
         Integer randomNumbers[] = {0, 1};
-        SorterUtils.swap(randomNumbers, 0, 1);
+        Utils.swap(randomNumbers, 0, 1);
         Assert.assertEquals(1, randomNumbers[0]);
         Assert.assertEquals(0, randomNumbers[1]);
     }
 
     @Test
     public void testRandomNumbers() throws Exception {
-        Integer randomNumbers[] = SorterUtils.generateRandomIntArray(11);
+        Integer randomNumbers[] = Utils.generateRandomIntArray(11);
         Assert.assertEquals(11, randomNumbers.length);
         try {
             IntStream.range(0, randomNumbers.length)
@@ -33,13 +33,13 @@ public class SorterUtilsTest {
 
     @Test
     public void testReversingAndUniques() throws Exception {
-        Integer randomNumbers[] = SorterUtils.generateUniqueRandomIntArray(11);
+        Integer randomNumbers[] = Utils.generateUniqueRandomIntArray(11);
         Assert.assertEquals(11, randomNumbers.length);
         jdkArraysSorter.sort(randomNumbers);
         IntStream.range(0, randomNumbers.length)
                 .forEach(i -> Assert.assertEquals(i, randomNumbers[i]));
 
-        SorterUtils.reverse(randomNumbers);
+        Utils.reverse(randomNumbers);
         IntStream.range(0, randomNumbers.length)
                 .forEach(i -> Assert.assertEquals(i, randomNumbers[randomNumbers.length - i - 1]));
     }

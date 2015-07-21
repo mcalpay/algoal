@@ -1,14 +1,6 @@
 package org.mca.algoal.sorting;
 
-import java.util.Comparator;
-
-public class InsertionSorter<T> implements Sorter<T> {
-
-    private final Comparator<T> comparator;
-
-    public InsertionSorter(Comparator<T> comparator) {
-        this.comparator = comparator;
-    }
+public class InsertionSorter<T extends Comparable> implements Sorter<T> {
 
     @Override
     public void sort(T[] items) {
@@ -16,7 +8,7 @@ public class InsertionSorter<T> implements Sorter<T> {
             T item = items[i];
             int j = i;
             while (j >= 1 &&
-                    comparator.compare(item, items[j - 1]) < 0) {
+                    item.compareTo(items[j - 1]) < 0) {
                 items[j] = items[j - 1];
                 j--;
             }

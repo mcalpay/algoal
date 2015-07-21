@@ -2,6 +2,7 @@ package org.mca.algoal.sorting;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.mca.algoal.utils.Utils;
 
 import java.util.stream.IntStream;
 
@@ -22,7 +23,7 @@ public abstract class AbstractSortTest {
 
     @Test
     public void testWithProfiling() throws Exception {
-        Integer randomNumbers[] = SorterUtils.generateRandomIntArray(getProfilingSize());
+        Integer randomNumbers[] = Utils.generateRandomIntArray(getProfilingSize());
 
         RSRTimePrintingSorter timePrintingSorter = new RSRTimePrintingSorter();
         timePrintingSorter.setPrefix("Random data:   ");
@@ -34,7 +35,7 @@ public abstract class AbstractSortTest {
         timePrintingSorter.sort(randomNumbers);
         test(randomNumbers);
 
-        SorterUtils.reverse(randomNumbers);
+        Utils.reverse(randomNumbers);
 
         timePrintingSorter.setPrefix("Reverse sorted:");
         timePrintingSorter.sort(randomNumbers);
@@ -48,7 +49,7 @@ public abstract class AbstractSortTest {
 
     @Test
     public void testZeroToHundred() throws Exception {
-        Integer randomNumbers[] = SorterUtils.generateUniqueRandomIntArray(100);
+        Integer randomNumbers[] = Utils.generateUniqueRandomIntArray(100);
         getSorter().sort(randomNumbers);
         IntStream.range(0, randomNumbers.length)
                 .forEach(i -> Assert.assertEquals(i, randomNumbers[i]));

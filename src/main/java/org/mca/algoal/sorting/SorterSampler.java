@@ -1,6 +1,6 @@
 package org.mca.algoal.sorting;
 
-import java.util.Comparator;
+import org.mca.algoal.utils.Utils;
 
 public class SorterSampler {
 
@@ -8,14 +8,14 @@ public class SorterSampler {
         System.out.println(";MergeSorter;JDK;Insertion");
         for (int i = 10_000; i <= 100_000; i += 10_000) {
             System.out.print(i + ";");
-            new SamplersTimePrintingSorter(new MergeSorter(Comparator.naturalOrder()))
-                    .sort(SorterUtils.generateRandomIntArray(i));
+            new SamplersTimePrintingSorter(new MergeSorter())
+                    .sort(Utils.generateRandomIntArray(i));
             System.out.print(";");
-            new SamplersTimePrintingSorter(new JDKArraysSorter(Comparator.naturalOrder()))
-                    .sort(SorterUtils.generateRandomIntArray(i));
+            new SamplersTimePrintingSorter(new JDKArraysSorter())
+                    .sort(Utils.generateRandomIntArray(i));
             System.out.print(";");
-            new SamplersTimePrintingSorter(new InsertionSorter(Comparator.naturalOrder()))
-                    .sort(SorterUtils.generateRandomIntArray(i));
+            new SamplersTimePrintingSorter(new InsertionSorter())
+                    .sort(Utils.generateRandomIntArray(i));
             System.out.print("\n");
         }
     }

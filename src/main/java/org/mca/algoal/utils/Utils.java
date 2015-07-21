@@ -1,4 +1,4 @@
-package org.mca.algoal.sorting;
+package org.mca.algoal.utils;
 
 import java.util.Collections;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class SorterUtils {
+public class Utils {
 
     private static final Random random = new Random();
 
@@ -33,4 +33,5 @@ public class SorterUtils {
         IntStream.range(0, randomNumbers.length / 2)
                 .forEach(i -> swap(randomNumbers, i, randomNumbers.length - i - 1));
     }
+
 }
