@@ -11,10 +11,6 @@ public class SorterUtilsTest {
 
     private static final JDKArraysSorter<Integer> jdkArraysSorter = new JDKArraysSorter<>(Comparator.<Integer>naturalOrder());
 
-    protected Sorter<Integer> getSorter() {
-        return jdkArraysSorter;
-    }
-
     @Test
     public void testSwap() throws Exception {
         Integer randomNumbers[] = {0, 1};
@@ -39,7 +35,7 @@ public class SorterUtilsTest {
     public void testReversingAndUniques() throws Exception {
         Integer randomNumbers[] = SorterUtils.generateUniqueRandomIntArray(11);
         Assert.assertEquals(11, randomNumbers.length);
-        getSorter().sort(randomNumbers);
+        jdkArraysSorter.sort(randomNumbers);
         IntStream.range(0, randomNumbers.length)
                 .forEach(i -> Assert.assertEquals(i, randomNumbers[i]));
 
