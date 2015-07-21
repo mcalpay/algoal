@@ -19,7 +19,8 @@ public class SorterUtils {
     }
 
     public static Integer[] generateRandomIntArray(int size) {
-        return IntStream.range(0, size).map(i -> random.nextInt(size)).boxed().toArray(Integer[]::new);
+        return IntStream.range(0, size).map(i -> random.nextInt(size)).boxed()
+                .toArray(Integer[]::new);
     }
 
     public static Integer[] generateUniqueRandomIntArray(int size) {
