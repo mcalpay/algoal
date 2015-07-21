@@ -1,6 +1,6 @@
 package org.mca.algoal.sorting;
 
-public abstract class QuickSorterTest extends AbstractSortTest {
+public class QuickSorterTest extends AbstractSortTest {
 
     private static final Sorter sorter = new QuickSorter();
 

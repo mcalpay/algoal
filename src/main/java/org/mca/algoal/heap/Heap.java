@@ -4,13 +4,13 @@ import org.mca.algoal.utils.Utils;
 
 public class Heap {
 
-    public static <T extends Comparable> void buildMaxHeap(T items[], int size) {
+    public static void buildMaxHeap(Comparable items[], int size) {
         for (int i = (size / 2) - 1; i >= 0; i--) {
             maxHeapify(items, i, size);
         }
     }
 
-    public static <T extends Comparable> void maxHeapify(T items[], int indx, int size) {
+    public static void maxHeapify(Comparable items[], int indx, int size) {
         int swap = indx;
         int leftIndx = 2 * indx + 1;
         int rightIndx = leftIndx + 1;
