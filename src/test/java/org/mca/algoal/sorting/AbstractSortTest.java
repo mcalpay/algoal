@@ -11,9 +11,8 @@ public abstract class AbstractSortTest {
 
     protected void test(Integer[] randomNumbers) {
         IntStream.range(0, randomNumbers.length)
-                .filter(i ->
-                        (i + 1 < randomNumbers.length
-                                && randomNumbers[i] > randomNumbers[i + 1]))
+                .filter(i -> (i + 1 < randomNumbers.length
+                        && randomNumbers[i] > randomNumbers[i + 1]))
                 .forEach(i -> Assert.fail("i:" + i + " " + randomNumbers[i] + ">" + randomNumbers[i + 1]));
     }
 
