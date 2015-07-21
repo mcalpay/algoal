@@ -2,10 +2,10 @@ package org.mca.algoal.sorting;
 
 public abstract class QuickSorterTest extends AbstractSortTest {
 
-    private static final Sorter<Integer> sorter = new QuickSorter<>();
+    private static final Sorter sorter = new QuickSorter();
 
     @Override
-    protected Sorter<Integer> getSorter() {
+    protected Sorter getSorter() {
         return sorter;
     }
 

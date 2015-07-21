@@ -1,11 +1,11 @@
 package org.mca.algoal.sorting;
 
-public class InsertionSorter<T extends Comparable> implements Sorter<T> {
+public class InsertionSorter implements Sorter {
 
     @Override
-    public void sort(T[] items) {
+    public void sort(Comparable[] items) {
         for (int i = 1; i < items.length; i++) {
-            T item = items[i];
+            Comparable item = items[i];
             int j = i;
             while (j >= 1 &&
                     item.compareTo(items[j - 1]) < 0) {

@@ -2,10 +2,10 @@ package org.mca.algoal.sorting;
 
 import java.util.Arrays;
 
-public class JDKArraysSorter<T extends Comparable> implements Sorter<T> {
+public class JDKArraysSorter implements Sorter {
 
     @Override
-    public void sort(T[] items) {
+    public void sort(Comparable[] items) {
         Arrays.sort(items);
     }
 }

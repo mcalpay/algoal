@@ -1,6 +1,6 @@
 package org.mca.algoal.sorting;
 
-public class MergeSorter<T extends Comparable> implements Sorter<T> {
+public class MergeSorter implements Sorter {
 
     @Override
     public void sort(Comparable[] items) {

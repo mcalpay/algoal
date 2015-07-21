@@ -2,10 +2,10 @@ package org.mca.algoal.sorting;
 
 public class InsertionSorterTest extends AbstractSortTest {
 
-    private static final Sorter<Integer> sorter = new InsertionSorter<>();
+    private static final Sorter sorter = new InsertionSorter();
 
     @Override
-    protected Sorter<Integer> getSorter() {
+    protected Sorter getSorter() {
         return sorter;
     }
 

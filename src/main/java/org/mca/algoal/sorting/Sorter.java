@@ -1,7 +1,7 @@
 package org.mca.algoal.sorting;
 
-public interface Sorter<T> {
+public interface Sorter {
 
-    void sort(T[] items);
+    void sort(Comparable[] items);
 
 }

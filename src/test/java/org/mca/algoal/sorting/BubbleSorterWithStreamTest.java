@@ -2,10 +2,10 @@ package org.mca.algoal.sorting;
 
 public class BubbleSorterWithStreamTest extends AbstractSortTest {
 
-    private static final Sorter<Integer> sorter = new BubbleSorterWithStream<>();
+    private static final Sorter sorter = new BubbleSorterWithStream();
 
     @Override
-    protected Sorter<Integer> getSorter() {
+    protected Sorter getSorter() {
         return sorter;
     }
 

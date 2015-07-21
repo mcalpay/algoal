@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 
 public abstract class AbstractSortTest {
 
-    protected abstract Sorter<Integer> getSorter();
+    protected abstract Sorter getSorter();
 
     protected void test(Integer[] randomNumbers) {
         IntStream.range(0, randomNumbers.length)
@@ -55,7 +55,7 @@ public abstract class AbstractSortTest {
                 .forEach(i -> Assert.assertEquals(i, randomNumbers[i]));
     }
 
-    private class RSRTimePrintingSorter extends TimePrintingSorter<Integer> {
+    private class RSRTimePrintingSorter extends TimePrintingSorter {
 
         private String prefix;
 

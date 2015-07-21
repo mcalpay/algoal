@@ -1,15 +1,15 @@
 package org.mca.algoal.sorting;
 
-public class TimePrintingSorter<T> implements Sorter<T> {
+public class TimePrintingSorter implements Sorter {
 
-    private final Sorter<T> sorter;
+    private final Sorter sorter;
 
-    public TimePrintingSorter(Sorter<T> sorter) {
+    public TimePrintingSorter(Sorter sorter) {
         this.sorter = sorter;
     }
 
     @Override
-    public final void sort(T[] items) {
+    public final void sort(Comparable[] items) {
         long start = System.currentTimeMillis();
         sorter.sort(items);
         long end = System.currentTimeMillis();

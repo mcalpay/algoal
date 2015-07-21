@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 
 public class UtilsTest {
 
-    private static final JDKArraysSorter<Integer> jdkArraysSorter = new JDKArraysSorter<>();
+    private static final JDKArraysSorter jdkArraysSorter = new JDKArraysSorter();
 
     @Test
     public void testSwap() throws Exception {

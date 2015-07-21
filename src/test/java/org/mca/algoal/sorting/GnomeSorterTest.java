@@ -2,10 +2,10 @@ package org.mca.algoal.sorting;
 
 public class GnomeSorterTest extends AbstractSortTest {
 
-    private static final Sorter<Integer> sorter = new GnomeSorter<>();
+    private static final Sorter sorter = new GnomeSorter();
 
     @Override
-    protected Sorter<Integer> getSorter() {
+    protected Sorter getSorter() {
         return sorter;
     }
 

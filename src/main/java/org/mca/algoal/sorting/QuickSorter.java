@@ -1,9 +1,9 @@
 package org.mca.algoal.sorting;
 
-public class QuickSorter<T extends Comparable> implements Sorter<T> {
+public class QuickSorter implements Sorter {
 
     @Override
-    public void sort(T[] items) {
+    public void sort(Comparable[] items) {
     }
 
 }

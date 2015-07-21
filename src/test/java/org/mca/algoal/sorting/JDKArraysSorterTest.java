@@ -2,10 +2,10 @@ package org.mca.algoal.sorting;
 
 public class JDKArraysSorterTest extends AbstractSortTest {
 
-    private static final Sorter<Integer> sorter = new JDKArraysSorter<>();
+    private static final Sorter sorter = new JDKArraysSorter();
 
     @Override
-    protected Sorter<Integer> getSorter() {
+    protected Sorter getSorter() {
         return sorter;
     }
 
