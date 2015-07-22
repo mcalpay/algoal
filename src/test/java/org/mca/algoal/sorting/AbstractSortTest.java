@@ -27,8 +27,7 @@ public abstract class AbstractSortTest {
 
         RSRTimePrintingSorter timePrintingSorter = new RSRTimePrintingSorter();
         timePrintingSorter.setPrefix("Random data:   ");
-        timePrintingSorter
-                .sort(randomNumbers);
+        timePrintingSorter.sort(randomNumbers);
         test(randomNumbers);
 
         timePrintingSorter.setPrefix("Sorted data:   ");
