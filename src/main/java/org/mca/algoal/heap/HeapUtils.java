@@ -2,7 +2,7 @@ package org.mca.algoal.heap;
 
 import org.mca.algoal.utils.Utils;
 
-public class Heap {
+public class HeapUtils {
 
     public static void buildMaxHeap(Comparable items[], int size) {
         for (int i = (size / 2) - 1; i >= 0; i--) {
