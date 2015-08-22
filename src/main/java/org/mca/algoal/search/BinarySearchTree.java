@@ -55,15 +55,15 @@ public class BinarySearchTree {
         Arrays.stream(nodes).forEach(node -> insert(node));
     }
 
-    public void traverse(NodeCallback nodeCallback) {
-        traverse(root, nodeCallback);
+    public void traverse(NodeAndParentClosure nodeCallback) {
+        traverse(null, root, nodeCallback);
     }
 
-    private void traverse(TreeNode node, NodeCallback nodeCallback) {
+    private void traverse(TreeNode parent, TreeNode node, NodeAndParentClosure nodeCallback) {
         if (node != null) {
-            traverse(node.getLeft(), nodeCallback);
-            nodeCallback.doOnNode(node);
-            traverse(node.getRight(), nodeCallback);
+            traverse(node, node.getLeft(), nodeCallback);
+            nodeCallback.found(node, parent);
+            traverse(node, node.getRight(), nodeCallback);
         }
     }
 
@@ -81,4 +81,69 @@ public class BinarySearchTree {
         return isBST(node.getLeft(), min, node.getKey()) && isBST(node.getRight(), node.getKey(), max);
     }
 
+    public void remove(Comparable key) {
+        TreeNode node = root;
+        TreeNode parent = null;
+        while (node != null) {
+            int comparison = node.getKey().compareTo(key);
+            if (comparison == 0) {
+                remove(node, parent);
+            } else if (comparison > 0) {
+                parent = node;
+                node = node.getLeft();
+            } else {
+                parent = node;
+                node = node.getRight();
+            }
+        }
+    }
+
+    private void remove(TreeNode node, TreeNode parent) {
+        if (node != null) {
+            if (node.getLeft() == null && node.getRight() == null) {
+                if (parent != null) {
+                    int comparison = parent.compareTo(node);
+                    if (comparison > 0) {
+                        parent.setLeft(null);
+                    } else {
+                        parent.setRight(null);
+                    }
+                } else {
+                    root = null;
+                }
+            } else if (node.getLeft() == null) {
+                if (parent != null) {
+                    int comparison = parent.compareTo(node);
+                    if (comparison > 0) {
+                        parent.setLeft(node.getRight());
+                    } else {
+                        parent.setRight(node.getRight());
+                    }
+                } else {
+                    root = node.getRight();
+                }
+            } else if (node.getRight() == null) {
+                if (parent != null) {
+                    int comparison = parent.compareTo(node);
+                    if (comparison > 0) {
+                        parent.setLeft(node.getLeft());
+                    } else {
+                        parent.setRight(node.getLeft());
+                    }
+                } else {
+                    root = node.getLeft();
+                }
+            } else {
+                TreeNode successor = node.getRight();
+                TreeNode successorparent = node;
+                while (successor.getRight() != null) {
+                    successorparent = successor;
+                    successor = successor.getLeft();
+                }
+                node.setKey(successor.getKey());
+                node.setValue(successor.getValue());
+                remove(successor, successorparent);
+            }
+        }
+    }
 }

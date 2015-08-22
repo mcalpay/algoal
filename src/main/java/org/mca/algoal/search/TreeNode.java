@@ -47,4 +47,8 @@ public class TreeNode implements Comparable<TreeNode> {
     public int compareTo(TreeNode o) {
         return key.compareTo(o.key);
     }
+
+    public void setKey(Comparable key) {
+        this.key = key;
+    }
 }
